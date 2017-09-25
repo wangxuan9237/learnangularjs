@@ -20,4 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 #    url(r'^',include('classtud.urls',namespace='classtud')),
     url(r'^',include('blog.urls',namespace='blog')),
+    url(r'^api-auth/', include('rest_framework.urls',namespace='rest_framework')),
+    url(r'^account/',include('account.urls',namespace='account',app_name='account')),
 ]
