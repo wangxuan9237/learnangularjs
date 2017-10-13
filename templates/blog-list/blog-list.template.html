@@ -1,6 +1,6 @@
 <ul>
     <li ng-repeat="blog in $ctrl.blogs">
-        <h4>{{blog.title}}</h4>
+        <h4><a ui-sref="blogdetail({blogId:blog.id})">{{blog.title}}</a></h4>
         <span>{{blog.author}}</span>
     </li>
 </ul>

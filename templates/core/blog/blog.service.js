@@ -2,6 +2,6 @@ angular.
     module("core.blog").
     factory("Blog",["$resource",
         function($resource){
-            return $resource('/blogs/:id');
+            return $resource('/blogs/:blogId');
         }
     ]);
