@@ -22,3 +22,22 @@ angular.
             }
         ]
     })
+
+angular.
+    module('blogDetail').
+    component('blogDelete',{
+        templateUrl: 'templates/blog-detail/blog-delete.template.html',
+        controller: ['$stateParams','Blog',
+            function BlogDeleteController($stateParams,Blog){
+                var self = this;
+                Blog.delete({blogId:$stateParams.blogId},
+                    function(){
+                        self.hint = "delelte success";
+                },
+                    function(){
+                        self.hint = "delete fail";
+                    } 
+                );
+            }
+        ]
+    })

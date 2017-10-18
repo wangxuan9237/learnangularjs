@@ -19,8 +19,16 @@ angular.module('blogApp').
             component: 'blogMgm'
         }
 
+        var blogDelete = {
+            name: 'blogmgm.blogdelete',
+            url: '/{blogId}',
+            component: 'blogDelete'
+//            template: '<h1>blog delete</h1>'
+        }
+
         $urlRouterProvider.otherwise('/blogs');
         $stateProvider.state(blogList);
         $stateProvider.state(blogDetail);
         $stateProvider.state(blogMgm);
+        $stateProvider.state(blogDelete);
 });
