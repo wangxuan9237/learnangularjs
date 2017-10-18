@@ -13,7 +13,14 @@ angular.module('blogApp').
             component: 'blogDetail'
         }
 
+        var blogMgm = {
+            name: 'blogmgm',
+            url: '/blogs/mgm',
+            component: 'blogMgm'
+        }
+
         $urlRouterProvider.otherwise('/blogs');
         $stateProvider.state(blogList);
         $stateProvider.state(blogDetail);
+        $stateProvider.state(blogMgm);
 });

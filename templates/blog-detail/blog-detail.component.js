@@ -11,3 +11,14 @@ angular.
             }
         ]
     })
+
+angular.
+    module('blogDetail').
+    component('blogMgm',{
+        templateUrl: 'templates/blog-detail/blog-mgm.template.html',
+        controller: ['Blog',
+            function BlogMgmController(Blog) {
+                this.blogs = Blog.query() ;
+            }
+        ]
+    })
