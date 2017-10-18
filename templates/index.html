@@ -10,6 +10,7 @@
         <script type="text/javascript" src="{% static 'node_modules/angular-resource/angular-resource.min.js'%}"></script>
         <script type="text/javascript" src="{% static 'node_modules/angular-ui-router/angular-ui-router.js'%}"></script>
         <script type="text/javascript" src="{% static 'app.module.js'%}"></script>
+        <script type="text/javascript" src="{% static 'app.config.js'%}"></script>
         <script type="text/javascript" src="{% static 'core/core.module.js'%}"></script>
         <script type="text/javascript" src="{% static 'core/blog/blog.module.js'%}"></script>
         <script type="text/javascript" src="{% static 'core/blog/blog.service.js' %}"></script>
@@ -20,6 +21,7 @@
     </head>
     <body>
         <!--        <a ui-sref="bloglist">bloglist</a> -->
+        <a ui-sref="blogmgm">文章管理</a>
         <ui-view></ui-view> 
         <!--                     <blog-list></blog-list> -->
     </body>

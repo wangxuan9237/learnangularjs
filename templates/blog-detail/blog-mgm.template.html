@@ -1,0 +1,13 @@
+<table>
+    <tr>
+        <th>名称</th> 
+        <th>作者</th>
+        <th>操作</th>
+    </tr>
+    <tr ng-repeat="blog in $ctrl.blogs">
+        <td>{{blog.title}}</td> 
+        <td>{{blog.author}}</td>
+        <td>修改／删除</td>
+    </tr>
+</table>
+<button>增加</button>
