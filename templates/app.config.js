@@ -31,10 +31,17 @@ angular.module('blogApp').
             component: 'blogAdd'
         }
 
-        $urlRouterProvider.otherwise('/blogs');
+        var blogEdit = {
+            name: 'blogedit',
+            url: 'blogedit/{blogId}',
+            component: 'blogEdit'
+        }
+
+//        $urlRouterProvider.otherwise('/blogs');
         $stateProvider.state(blogList);
         $stateProvider.state(blogDetail);
         $stateProvider.state(blogMgm);
         $stateProvider.state(blogDelete);
         $stateProvider.state(blogAdd);
+        $stateProvider.state(blogEdit);
 });

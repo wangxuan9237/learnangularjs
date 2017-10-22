@@ -68,3 +68,29 @@ angular.
         ]
     })
 
+angular.
+    module('blogDetail').
+    component('blogEdit',{
+        templateUrl: 'templates/blog-detail/blog-edit.template.html',
+        controller: ['$stateParams','Blog',
+            function BlogEditController($stateParams,Blog){
+                var self = this;
+                self.blog = Blog.get({blogId:$stateParams.blogId});
+                this.title = self.blog.title;
+                this.body = self.blog.body;
+                self.editBlog = function BlogEdit(title,body){
+                    console.log(title);
+                    console.log(body);
+                    Blog.update({blogId:$stateParams.blogId},{title:title,body:body},
+                            function(){
+                                $("#tip").modal();  
+                                self.hint = "edit success";
+                            },
+                            function(){
+                                $("#tip").modal();  
+                                self.hint = "edit fail";
+                            });
+                }
+            }
+        ]
+    })

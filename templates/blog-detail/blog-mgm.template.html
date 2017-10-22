@@ -7,7 +7,7 @@
     <tr ng-repeat="blog in $ctrl.blogs">
         <td>{{blog.title}}</td> 
         <td>{{blog.author}}</td>
-        <td>修改／<a ui-sref="blogmgm.blogdelete({blogId:blog.id})">删除</a></td>
+        <td><a ui-sref="blogedit({blogId:blog.id})">修改</a>／<a ui-sref="blogmgm.blogdelete({blogId:blog.id})">删除</a></td>
     </tr>
 </table>
 <button><a ui-sref="blogadd">增加</a></button>
