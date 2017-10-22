@@ -23,7 +23,12 @@ angular.module('blogApp').
             name: 'blogmgm.blogdelete',
             url: '/{blogId}',
             component: 'blogDelete'
-//            template: '<h1>blog delete</h1>'
+        }
+
+        var blogAdd = {
+            name: 'blogadd',
+            url: '/blogs/add',
+            component: 'blogAdd'
         }
 
         $urlRouterProvider.otherwise('/blogs');
@@ -31,4 +36,5 @@ angular.module('blogApp').
         $stateProvider.state(blogDetail);
         $stateProvider.state(blogMgm);
         $stateProvider.state(blogDelete);
+        $stateProvider.state(blogAdd);
 });

@@ -123,3 +123,4 @@ STATIC_URL = '/templates/'
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR,"templates")
         ]
+APPEND_SLASH = True 

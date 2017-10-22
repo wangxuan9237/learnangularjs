@@ -1,4 +1,9 @@
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+title:<input type="text" id="title" ng-model="$ctrl.title">
+body:<input type="text" id="body" ng-model="$ctrl.body">
+<p>title:{{$ctrl.title}}</p>
+<p>body:{{$ctrl.body}}</p>
+<button ng-click="$ctrl.addBlog($ctrl.title,$ctrl.body)">提交</button>
+<div class="modal fade" id="tip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -19,10 +24,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-$(function() {
-    $('#myModal').modal({
-        keyboard: true
-})
-});
-</script>

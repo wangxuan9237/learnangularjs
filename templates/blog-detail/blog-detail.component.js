@@ -41,3 +41,30 @@ angular.
             }
         ]
     })
+
+angular.
+    module('blogDetail').
+    component('blogAdd',{
+        templateUrl: 'templates/blog-detail/blog-add.template.html',
+        controller: ['$stateParams','Blog',
+            function BlogAddController($stateParams,Blog){
+                var self = this;
+                //double data binding
+                self.addBlog = function BlogAdd(title,body){
+                    console.log(title);
+                    console.log(body);
+                    Blog.save({},{title:title,body:body},
+                            function(){
+                                $("#tip").modal();  
+                                self.hint = "add success";
+                            },
+                            function(){
+                                $("#tip").modal();  
+                                self.hint = "add fail";
+                            }
+                        );
+                }
+            }
+        ]
+    })
+
