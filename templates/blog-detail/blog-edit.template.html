@@ -1,8 +1,6 @@
-title:<input type="text" id="title" ng-model="$ctrl.title">
-body:<input type="text" id="body" ng-model="$ctrl.body">
-<p>{{$ctrl.title}}</p>
-<p>{{$ctrl.body}}</p>
-<button ng-click="$ctrl.editBlog($ctrl.title,$ctrl.body)">提交</button>
+title:<input type="text" id="title" ng-model="$ctrl.blog.title">
+body:<input type="text" id="body" ng-model="$ctrl.blog.body">
+<button ng-click="$ctrl.editBlog($ctrl.blog.title,$ctrl.blog.body)">提交</button>
 <div class="modal fade" id="tip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

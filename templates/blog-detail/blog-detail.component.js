@@ -27,15 +27,19 @@ angular.
     module('blogDetail').
     component('blogDelete',{
         templateUrl: 'templates/blog-detail/blog-delete.template.html',
-        controller: ['$stateParams','Blog',
-            function BlogDeleteController($stateParams,Blog){
+        controller: ['$stateParams','Blog','$state',
+            function BlogDeleteController($stateParams,Blog,$state){
                 var self = this;
                 Blog.delete({blogId:$stateParams.blogId},
                     function(){
                         self.hint = "delelte success";
+                        $state.go('blogMgm');
+                        console.log('delete success go blogMgm');
                 },
                     function(){
                         self.hint = "delete fail";
+                        $state.go('blogMgm');
+                        console.log('delete fail go blogMgm');
                     } 
                 );
             }
@@ -51,8 +55,8 @@ angular.
                 var self = this;
                 //double data binding
                 self.addBlog = function BlogAdd(title,body){
-                    console.log(title);
-                    console.log(body);
+//                    console.log(title);
+//                    console.log(body);
                     Blog.save({},{title:title,body:body},
                             function(){
                                 $("#tip").modal();  
@@ -75,12 +79,17 @@ angular.
         controller: ['$stateParams','Blog',
             function BlogEditController($stateParams,Blog){
                 var self = this;
+                console.log("okokok");
                 self.blog = Blog.get({blogId:$stateParams.blogId});
-                this.title = self.blog.title;
-                this.body = self.blog.body;
-                self.editBlog = function BlogEdit(title,body){
-                    console.log(title);
-                    console.log(body);
+                console.log(self.blog.title);
+                this.title = "title";
+                this.body = "body";
+                //console.log(blog.title);
+                //console.log(blog.body);
+//                console.log(this.title);
+//                console.log(this.body);
+                this.editBlog = function BlogEdit(title,body){
+                    console.log("editblog");
                     Blog.update({blogId:$stateParams.blogId},{title:title,body:body},
                             function(){
                                 $("#tip").modal();  

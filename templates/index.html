@@ -19,10 +19,13 @@
         <script type="text/javascript" src="{% static 'blog-list/blog-list.component.js' %}"></script>
         <script type="text/javascript" src="{% static 'blog-detail/blog-detail.module.js'%}"></script>
         <script type="text/javascript" src="{% static 'blog-detail/blog-detail.component.js'%}"></script>
+        <script type="text/javascript" src="{% static 'newaccount/account.module.js'%}"></script>
+        <script type="text/javascript" src="{% static 'newaccount/account.component.js'%}"></script>
     </head>
     <body>
         <!--        <a ui-sref="bloglist">bloglist</a> -->
         <a ui-sref="blogmgm">文章管理</a>
+        <a ui-sref="login">登录</a>
         <ui-view></ui-view> 
         <!--                     <blog-list></blog-list> -->
     </body>

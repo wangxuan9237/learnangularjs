@@ -37,6 +37,12 @@ angular.module('blogApp').
             component: 'blogEdit'
         }
 
+        var Login = {
+            name: 'login' ,
+            url: '/login',
+//            template: 'login123'
+            component: 'accountLogin'          
+        }
 //        $urlRouterProvider.otherwise('/blogs');
         $stateProvider.state(blogList);
         $stateProvider.state(blogDetail);
@@ -44,4 +50,5 @@ angular.module('blogApp').
         $stateProvider.state(blogDelete);
         $stateProvider.state(blogAdd);
         $stateProvider.state(blogEdit);
+        $stateProvider.state(Login);
 });
