@@ -1,4 +1,5 @@
 var blogApp = angular.module('blogApp',[
+    'navigate',
     'account',
     'blogList',
     'blogDetail',
@@ -6,4 +7,7 @@ var blogApp = angular.module('blogApp',[
     'ui.router'
 ]);
 
+blogApp.run(function($rootScope){
+    $rootScope.login = "1";
+})
 

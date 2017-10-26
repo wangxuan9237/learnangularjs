@@ -79,15 +79,7 @@ angular.
         controller: ['$stateParams','Blog',
             function BlogEditController($stateParams,Blog){
                 var self = this;
-                console.log("okokok");
                 self.blog = Blog.get({blogId:$stateParams.blogId});
-                console.log(self.blog.title);
-                this.title = "title";
-                this.body = "body";
-                //console.log(blog.title);
-                //console.log(blog.body);
-//                console.log(this.title);
-//                console.log(this.body);
                 this.editBlog = function BlogEdit(title,body){
                     console.log("editblog");
                     Blog.update({blogId:$stateParams.blogId},{title:title,body:body},

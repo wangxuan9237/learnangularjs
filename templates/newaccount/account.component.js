@@ -2,8 +2,8 @@ angular.
     module('account').
     component('accountLogin',{
         templateUrl: 'templates/newaccount/account.template.html',
-        controller: ['$http','$state',
-            function LoginController($http,$state) {
+        controller: ['$http','$state','$scope','$rootScope',
+            function LoginController($http,$state,$scope,$rootScope) {
                 var self = this;
                 this.login = function(username,password){
                     $http({
@@ -11,8 +11,12 @@ angular.
                         url:"/account/login",
                         data:{"username":username,"password":password}
                     }).then(function successCallback(response){
-                        console.log(response.data);
                         if(response.data.login == "0"){
+                            $rootScope.login = "0";
+                            $rootScope.$broadcast('user.login.success',{
+                                "user":username
+                            });
+                            console.log($rootScope.login);
                             console.log("login success");
                             $state.go('/blogs/mgm');
                         }else{

@@ -1,6 +1,18 @@
-userName:<input type="text" id="username" ng-model="$ctrl.username">
-password:<input type="password" id="password" ng-model="$ctrl.password">
-<button ng-click="$ctrl.login($ctrl.username,$ctrl.password)">登录</button>
-<button ng-click="$ctrl.logout()">退出</button>
-<button ng-click="$ctrl.go()">go</button>
-
+<div class="container" style="margin-top:100px;">
+<div class="row text-center">
+    <div class="col-md-offset-4 col-md-4">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">@</span>
+            <input class="form-control" type="text" id="username" placeholder="用户名" ng-model="$ctrl.username">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">@</span>
+            <input class="form-control" type="password" id="password" placeholder="密码" ng-model="$ctrl.password">
+        </div>
+        <br>
+        <button class="btn btn-default" style="width:300px;" ng-click="$ctrl.login($ctrl.username,$ctrl.password)">登录</button>
+    </div>
+    </div>
+</div>
+</div>

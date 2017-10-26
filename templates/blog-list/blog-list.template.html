@@ -1,6 +1,20 @@
-<ul>
-    <li ng-repeat="blog in $ctrl.blogs">
-        <h4><a ui-sref="blogdetail({blogId:blog.id})">{{blog.title}}</a></h4>
-        <span>{{blog.author}}</span>
-    </li>
-</ul>
+<div class="container">
+    <ul class="col-md-8">
+        <li ng-repeat="blog in $ctrl.blogs" style="list-style:none;">
+            <h3><a ui-sref="blogdetail({blogId:blog.id})" class="goon">{{blog.title}}</a></h4>
+            <span style="color:#999;">By&nbsp;{{blog.author}}</span>&nbsp;<span style="color:#999;">{{blog.published|date:'yyyy-MM-dd'}}</span>
+            <p>{{blog.body|limitTo:70}}...</p>
+            <p><a href="#">继续阅读...</span></a></p>
+            <hr>
+        </li>
+    </ul>
+</div>
+<style>
+.goon {
+    color: #333;
+}
+.goon:hover {
+    text-decoration: none;
+    color: red;
+}
+</style>
