@@ -1,15 +1,23 @@
-<table>
-    <tr>
-        <th>名称</th> 
-        <th>作者</th>
-        <th>操作</th>
-    </tr>
-    <tr ng-repeat="blog in $ctrl.blogs">
-        <td>{{blog.title}}</td> 
-        <td>{{blog.author}}</td>
-        <td><a ui-sref="blogedit({blogId:blog.id})">修改</a>／<a ui-sref="blogmgm.blogdelete({blogId:blog.id})">删除</a></td>
-    </tr>
-</table>
-<button><a ui-sref="blogadd">增加</a></button>
+<div class="container">
+    <div class="row col-md-offset-2 col-md-8">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th> 
+                    <th>作者</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="blog in $ctrl.blogs">
+                    <td>{{blog.title}}</td> 
+                    <td>{{blog.author}}</td>
+                    <td><a ui-sref="blogedit({blogId:blog.id})"><span class="glyphicon glyphicon-pencil"></span></a>／<a ui-sref="blogmgm.blogdelete({blogId:blog.id})"><span class="glyphicon glyphicon-trash"></span ></a></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-default"><a ui-sref="blogadd">增加</a></button>
 
-<ui-view></ui-view>
+        <ui-view></ui-view>
+    </div>
+</div>

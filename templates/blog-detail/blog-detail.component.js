@@ -52,11 +52,13 @@ angular.
         templateUrl: 'templates/blog-detail/blog-add.template.html',
         controller: ['$stateParams','Blog',
             function BlogAddController($stateParams,Blog){
+                var title = $("#title").val();
+                var body = $("#body").val();
                 var self = this;
                 //double data binding
-                self.addBlog = function BlogAdd(title,body){
-//                    console.log(title);
-//                    console.log(body);
+                self.addBlog = function(title,body){
+                    console.log(title);
+                    console.log(body);
                     Blog.save({},{title:title,body:body},
                             function(){
                                 $("#tip").modal();  

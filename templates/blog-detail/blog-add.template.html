@@ -1,8 +1,28 @@
 title:<input type="text" id="title" ng-model="$ctrl.title">
-body:<input type="text" id="body" ng-model="$ctrl.body">
 <p>title:{{$ctrl.title}}</p>
 <p>body:{{$ctrl.body}}</p>
-<button ng-click="$ctrl.addBlog($ctrl.title,$ctrl.body)">提交</button>
+<button ng-click="$ctrl.addBlog(title,body)">提交</button>
+<button onclick="getbody()">test</button>
+<div id="editormd">
+    <textarea name="content"  style="display:none;" id="body" ng-model="$ctrl.body"></textarea> 
+</div>
+<script type="text/javascript">
+//console.log(#(body).val());
+$(function() {
+    var editor = editormd("editormd", {
+        width : "80%",
+        height : 500,
+        syncScrolling : "single",
+        path : "templates/node_modules/editor.md-master/lib/" 
+        });
+});
+var getbody = function(){
+    console.log($("#body").val());
+}
+var title = $("#title").val();
+var body = $("#body").val();
+
+</script>
 <div class="modal fade" id="tip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
