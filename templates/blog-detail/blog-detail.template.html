@@ -1,1 +1,32 @@
-<p>{{$ctrl.blog.body}}</p>
+<!--
+<link rel="stylesheet" href="{% static 'editor/css/editormd.preview.css' %}"/>
+-->
+<div id="editormd-view">
+    <textarea id="append-test" style="display:none;">
+{{$ctrl.blog.body}}
+    </textarea>
+</div>
+
+<link rel="stylesheet" href="/templates/node_modules/editor.md-master/examples/css/style.css" />
+<link rel="stylesheet" href="/templates/node_modules/editor.md-master/css/editormd.preview.css" />
+<script src="/templates/node_modules/jquery/dist/jquery.min.js"></script> 
+<script src="/templates/node_modules/editor.md-master/lib/marked.min.js"></script>
+<script src="/templates/node_modules/editor.md-master/lib/prettify.min.js"></script>
+<script src="/templates/node_modules/editor.md-master/lib/raphael.min.js"></script>
+<script src="/templates/node_modules/editor.md-master/lib/underscore.min.js"></script>
+<script src="/templates/node_modules/editor.md-master/lib/sequence-diagram.min.js"></script>
+<script src="/templates/node_modules/editor.md-master/lib/flowchart.min.js"></script>
+<script src="/templates/node_modules/editor.md-master/lib/jquery.flowchart.min.js"></script>
+<script src="/templates/node_modules/editor.md-master/editormd.js"></script>
+<script type="text/javascript">
+$(function(){
+    editormd.markdownToHTML("editormd-view",{
+        htmlDecode:"style,script,iframe" ,
+        emoji:true,
+        taskList:true,
+        tex:true,
+        flowChart:true,
+        sequenceDiagram:true,
+    });
+});
+</script>

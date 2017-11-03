@@ -1,6 +1,54 @@
-title:<input type="text" id="title" ng-model="$ctrl.blog.title">
-body:<input type="text" id="body" ng-model="$ctrl.blog.body">
-<button ng-click="$ctrl.editBlog($ctrl.blog.title,$ctrl.blog.body)">提交</button>
+<div class="container">
+    <div class="col-md-offset-1">
+        <div class="form-inline">
+            <label for="title">Title:</label>
+            <input type="text" id="title" class="form-control" ng-model="$ctrl.blog.title">
+        </div>
+    </div>
+
+    <div id="editormd" style="margin-top:20px;"><!--{{ article_post_form.body }}-->
+    <textarea style="display:none;" id="id_body">
+{{$ctrl.blog.body}}
+    </textarea>
+    </div>
+    <div class="row col-md-2 col-md-offset-10">
+<button type="button" class="btn btn-primary" onclick="editBlog()">提交</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+    var editor = editormd("editormd",{
+        width:"80%" ,
+        height:500,
+        path:"templates/node_modules/editor.md-master/lib/",
+    });
+}); 
+var editBlog = function(){
+    var title = $("#title").val();
+    var body = $("#id_body").val();
+    var urlstr = location.href;
+    var strs = new Array();
+    strs = urlstr.split("/");
+    blogId = strs.pop();
+    $.ajax({
+        url: "/blogs/"+blogId,
+        type: "PUT",
+        data: {"title":title,"body":body},
+        success: function(){
+            $("#tip").modal();  
+            console.log("edit success")
+            $("#hint").text("edit success");
+        },
+        error: function(){
+            $("#tip").modal();  
+            console.log("edit error")
+            $("#hint").text("edit error");
+        }
+    });
+}
+</script>
+
 <div class="modal fade" id="tip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -11,7 +59,7 @@ body:<input type="text" id="body" ng-model="$ctrl.blog.body">
                 </h4>
             </div>
             <div class="modal-body">
-                {{$ctrl.hint}}
+                <span id="hint"></span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭

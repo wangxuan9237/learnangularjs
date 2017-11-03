@@ -52,10 +52,9 @@ angular.
         templateUrl: 'templates/blog-detail/blog-add.template.html',
         controller: ['$stateParams','Blog',
             function BlogAddController($stateParams,Blog){
-                var title = $("#title").val();
-                var body = $("#body").val();
                 var self = this;
                 //double data binding
+                /*
                 self.addBlog = function(title,body){
                     console.log(title);
                     console.log(body);
@@ -70,6 +69,7 @@ angular.
                             }
                         );
                 }
+                */
             }
         ]
     })
@@ -82,18 +82,23 @@ angular.
             function BlogEditController($stateParams,Blog){
                 var self = this;
                 self.blog = Blog.get({blogId:$stateParams.blogId});
+                /*
                 this.editBlog = function BlogEdit(title,body){
-                    console.log("editblog");
+                    console.log(title);
+                    console.log(body);
                     Blog.update({blogId:$stateParams.blogId},{title:title,body:body},
                             function(){
                                 $("#tip").modal();  
+                                console.log("edit success")
                                 self.hint = "edit success";
                             },
                             function(){
                                 $("#tip").modal();  
+                                console.log("edit fail");
                                 self.hint = "edit fail";
                             });
                 }
+                */
             }
         ]
     })

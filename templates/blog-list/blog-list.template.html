@@ -6,7 +6,7 @@
             <h3><a ui-sref="blogdetail({blogId:blog.id})" class="goon">{{blog.title}}</a></h4>
             <span style="color:#999;">By&nbsp;{{blog.author}}</span>&nbsp;<span style="color:#999;">{{blog.published|date:'yyyy-MM-dd'}}</span>
             <p>{{blog.body|limitTo:70}}...</p>
-            <p><a href="#">继续阅读...</span></a></p>
+            <p><a ui-sref="blogdetail({blogId:blog.id})">继续阅读...</span></a></p>
             <hr>
         </li>
     </ul>
